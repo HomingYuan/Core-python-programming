@@ -124,30 +124,37 @@ for j in a:
 print sum/len(a)
 
 #2.10带循环和判断条件的用户输入
-a=raw_input('Enter a num between 1 to 100')
-
-while true:
-	if a>100 or a<1:
-		print 'Enter again'
-	else:
-		break
-
+a=int(raw_input('Enter a num between 1 to 100:'))
+if 1<a<100:
+	print a
+else:
+	while a>100 or a<1:
+		a=int(raw_input('Enter again:'))
+		if 1<a<100:
+			print a
+		
 #2.11写一个带文本菜单的程序
 
-calss menu(object):
+class Menu(object):
 
-	def add(num):
+	def __init__(self,score):
+		self.score=score
+		
+	def sum_num(self):
 		sum=0.0
-		for i in num:
+		for i in self.score:
 			sum=sum+i
 		return sum
+	def ave_num(self):
+		sum=0.0
+		for i in self.score:
+			sum=sum+i
+		return sum/len(self.score)
+		
 
-	def ave(num):
-		return float(add(num))/len(num)
-a=menu()
-a.add([1,2,3,4,5])
-a.ave([1,2,3,4,5])	
-
+a=Menu([1,2,3,4,5,6])
+print a.sum_num()
+print a.ave_num()
 #2.12,2.13 自行练习
 
 #2.14 操作符优先级和括号分组
